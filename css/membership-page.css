@@ -1,0 +1,2674 @@
+:root {
+  /* THÈME CLAIR - Inspiré de l'image "Gumloop" */
+  --bg-primary: #f4f4f4;
+  /* GUMLOOP: Fond de page gris très clair */
+  --bg-secondary: #FFFFFF;
+  /* GUMLOOP: Fond des cartes et sections (blanc pur) */
+  --bg-tertiary: #FFFFFF;
+  /* GUMLOOP: Fond des modales, etc. (blanc pur) */
+
+  /* Couleurs de marque primaires inspirées de Gumloop */
+  --brand-primary: #2563EB;
+  /* GUMLOOP: Bleu vif des boutons "Select Plan" */
+  --brand-accent: #E11D48;
+  /* GUMLOOP: Rose/Magenta pour le plan mis en avant */
+
+  /* Pour les éléments de navigation actifs (on garde l'accent AfricAvenir pour la marque) */
+  --bg-active-nav-item: rgba(var(--africavenir-yellow-rgb), 0.1);
+  --text-on-active-nav-item: var(--africavenir-yellow-darker);
+  --border-active-nav-item: var(--africavenir-yellow);
+
+  --bg-hover-neutral: #F2F4F7;
+  /* GUMLOOP: Gris très clair pour les survols neutres */
+
+  --text-primary: #101828;
+  /* GUMLOOP: Texte principal (noir/gris très foncé) */
+  --text-secondary: #667085;
+  /* GUMLOOP: Texte secondaire (gris moyen) */
+  --text-muted: #98A2B3;
+  /* GUMLOOP: Texte discret, placeholders (gris plus clair) */
+
+  --border-primary: #EAECF0;
+  /* GUMLOOP: Bordures fines et claires pour les cartes et séparateurs */
+  --border-secondary: #D0D5DD;
+  /* GUMLOOP: Bordures pour inputs (légèrement plus visibles) */
+
+  --input-bg: #FFFFFF;
+  --input-text: var(--text-secondary);
+  --input-border: var(--border-secondary);
+  --input-focus-border: var(--africavenir-yellow);
+  /* AFRICAVENIR: Accent jaune au focus */
+  --input-focus-shadow: rgba(var(--africavenir-yellow-rgb), 0.25);
+  /* AFRICAVENIR: Ombre jaune */
+
+  --shadow-color: rgba(16, 24, 40, 0.05);
+  /* GUMLOOP: Ombre très subtile et neutre */
+
+  /* Layout variables (inchangées) */
+  --sidebar-width: 260px;
+  --header-height: 70px;
+
+  /* Couleurs spécifiques AfricAvenir (inchangées, utilisées explicitement) */
+  --africavenir-yellow: #f0ad4e;
+  --africavenir-yellow-rgb: 240, 173, 78;
+  --africavenir-yellow-darker: #d99236;
+  --africavenir-yellow-text: #FFFFFF;
+
+  /* Couleurs de feedback (inchangées) */
+  --color-success: #198754;
+  --bg-success-light: rgba(25, 135, 84, 0.1);
+  --color-danger: #dc3545;
+  --bg-danger-light: rgba(220, 53, 69, 0.1);
+  --color-warning: #ffc107;
+  --bg-warning-light: rgba(255, 193, 7, 0.1);
+  --color-info: #0dcaf0;
+  --bg-info-light: rgba(13, 202, 240, 0.1);
+}
+
+body[data-theme="dark"] {
+  /* THÈME SOMBRE (basé sur nos styles précédents) */
+  --bg-primary: #22252e;
+  --bg-secondary: #2c303a;
+  --bg-tertiary: #3a3f4c;
+
+  --bg-active-nav-item: rgba(var(--africavenir-yellow-rgb), 0.15);
+  /* AFRICAVENIR: Fond jaune léger pour item actif en sombre */
+  --text-on-active-nav-item: var(--africavenir-yellow);
+  /* AFRICAVENIR: Texte jaune pour item actif en sombre */
+  --border-active-nav-item: var(--africavenir-yellow);
+
+  --bg-hover-neutral: #313540;
+
+  --text-primary: #f0f0f0;
+  --text-secondary: #c0c0c0;
+  /* Un peu moins brillant que le précédent d0d0d0 */
+  --text-muted: #909090;
+  /* Un peu moins brillant que le précédent a0a0a0 */
+
+  --border-primary: #4a4f5a;
+  --border-secondary: #555966;
+
+  --input-bg: #2c303a;
+  /* Inputs sombres pour thème sombre */
+  --input-text: var(--text-primary);
+  --input-border: var(--border-secondary);
+  --input-focus-border: var(--africavenir-yellow);
+  --input-focus-shadow: rgba(var(--africavenir-yellow-rgb), 0.3);
+
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  /* Ombre plus prononcée pour le thème sombre */
+
+  /* Couleurs de feedback pour thème sombre */
+  --color-success: #2ECC71;
+  --bg-success-light: rgba(46, 204, 113, 0.2);
+  --color-danger: #E74C3C;
+  --bg-danger-light: rgba(231, 76, 60, 0.2);
+  --color-warning: #F39C12;
+  --bg-warning-light: rgba(243, 156, 18, 0.2);
+  --color-info: #3498DB;
+  --bg-info-light: rgba(52, 152, 219, 0.2);
+}
+
+/* styles.css - Initial content will be added later */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: var(--bg-primary);
+  /* Fond sombre comme dans l'OCR */
+  color: var(--text-pramary);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  margin-left: auto;
+  /* Push to right if flex container */
+  margin-right: 10px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.theme-toggle:hover {
+  background-color: var(--bg-hover-neutral);
+}
+
+.theme-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--text-primary);
+}
+
+
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.auth-header .decorative-image {
+  max-width: 200px;
+  /* Ajustez selon la taille réelle de l'image */
+  margin-bottom: 20px;
+}
+
+.auth-main {
+  background-color: var(--text-secondary);
+  /* Un peu plus clair pour le conteneur du formulaire */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 500px;
+  /* Limite la largeur du formulaire sur les grands écrans */
+}
+
+.auth-main h1 {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.auth-main .form-instruction {
+  text-align: center;
+  color: #cccccc;
+  /* Un peu plus clair que le texte de base */
+  margin-bottom: 25px;
+  font-weight: bold;
+}
+
+.back-link {
+  display: block;
+  margin-bottom: 15px;
+  color: #a0a0a0;
+  text-decoration: none;
+  font-size: 0.9em;
+}
+
+.back-link:hover {
+  color: #ffffff;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+  /* Espace entre Nom et Prénom */
+  margin-bottom: 15px;
+}
+
+.form-row .form-group {
+  flex: 1;
+  /* Chaque groupe prend la moitié de l'espace */
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group input[type="email"],
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background-color: #ffffff;
+  /* Fond blanc pour les champs */
+  color: #333333;
+  /* Texte noir pour les champs */
+  box-sizing: border-box;
+  /* Important pour que padding ne déborde pas */
+}
+
+.btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #f0ad4e;
+  /* Jaune/Orange comme dans l'OCR */
+  color: #2c303a;
+  /* Texte foncé pour contraster avec le bouton jaune */
+}
+
+.btn-primary:hover {
+  background-color: #ec971f;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  /* Espace au-dessus du bouton */
+}
+
+.auth-links {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.auth-links a {
+  color: #f0ad4e;
+  text-decoration: none;
+}
+
+.auth-links a:hover {
+  text-decoration: underline;
+}
+
+.site-footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #1e2128;
+  /* Un peu plus foncé que le body */
+  color: #a0a0a0;
+  font-size: 0.85em;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Pour que le footer auth soit aligné avec le reste */
+.auth-footer {
+  background-color: transparent;
+  /* Ou hérite de body si c'est le même */
+  padding-bottom: 20px;
+  /* Un peu d'espace en bas */
+}
+
+
+/* Responsive adjustments (exemple) */
+@media (max-width: 600px) {
+  .auth-main {
+    padding: 20px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    /* Empile Nom et Prénom sur mobile */
+    gap: 0;
+    /* Annule l'espace car ils sont empilés */
+  }
+
+  .form-row .form-group {
+    margin-bottom: 15px;
+    /* Rétablit la marge du bas pour les champs empilés */
+  }
+
+  .auth-header .decorative-image {
+    max-width: 150px;
+  }
+}
+
+/* css/styles.css */
+/* ... (styles précédents pour body, auth-container, auth-header, auth-main, h1, form-instruction, back-link, form-row, form-group etc. restent inchangés) ... */
+
+/* Styles pour les champs de formulaire (déjà présents mais vérifiés pour select) */
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group input[type="email"],
+/* Ajouté pour l'avenir */
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background-color: #ffffff;
+  /* Fond blanc pour les champs */
+  color: #333333;
+  /* Texte noir pour les champs */
+  box-sizing: border-box;
+  /* Important pour que padding ne déborde pas */
+  font-size: 1em;
+  /* Cohérence de la taille de police */
+}
+
+/* Style spécifique pour s'assurer que le select ressemble aux autres inputs */
+.form-group select {
+  appearance: none;
+  /* Supprime le style natif du navigateur */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007bff%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+  /* Flèche de dropdown personnalisée */
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+  padding-right: 30px;
+  /* Espace pour la flèche */
+}
+
+/* Option désactivée (placeholder) dans le select */
+.form-group select option[disabled] {
+  color: #999;
+}
+
+/* css/styles.css */
+
+/* ... (styles précédents pour body, auth-container, etc.) ... */
+
+/* Variables de couleur (optionnel mais utile) */
+
+/* Layout principal de l'application */
+.page-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--dark-bg);
+  /* Même fond que le body pour les pages auth */
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  position: fixed;
+  /* Sidebar fixe */
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1000;
+  /* Au-dessus du contenu */
+  transition: transform 0.3s ease;
+  /* Pour le menu mobile */
+}
+
+.sidebar-header {
+  padding: 0 20px 20px 20px;
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-header .logo {
+  max-width: 80%;
+  margin-bottom: 15px;
+}
+
+.admin-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Ou left si vous préférez */
+  gap: 10px;
+  padding: 10px 0;
+  font-size: 0.9em;
+}
+
+.admin-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.main-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.main-nav li a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 1em;
+  border-left: 3px solid transparent;
+  /* Pour l'indicateur actif */
+  transition: background-color 0.2s ease, color 0.2s ease, border-left-color 0.2s ease;
+}
+
+.main-nav li a:hover,
+.main-nav li.active a {
+  background-color: var(--medium-bg);
+  color: var(--text-color);
+  border-left-color: var(--primary-color);
+}
+
+.nav-icon {
+  width: 18px;
+  height: 18px;
+  filter: invert(70%) sepia(10%) saturate(200%) hue-rotate(180deg) brightness(100%) contrast(85%);
+  /* Gris clair pour les icônes */
+}
+
+.main-nav li.active a .nav-icon,
+.main-nav li a:hover .nav-icon {
+  filter: invert(86%) sepia(28%) saturate(1578%) hue-rotate(325deg) brightness(97%) contrast(93%);
+  /* Couleur primaire pour icône active/hover */
+}
+
+
+.sidebar-footer {
+  margin-top: auto;
+  /* Pousse le footer en bas */
+  padding: 20px;
+  border-top: 1px solid var(--border-color);
+}
+
+.signout-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 1em;
+}
+
+.signout-link:hover {
+  color: var(--text-color);
+}
+
+.signout-link .nav-icon {
+  /* Utilise la même classe pour la cohérence */
+  /* Les styles de .nav-icon s'appliquent déjà */
+}
+
+.signout-link:hover .nav-icon {
+  /* Change la couleur de l'icône au survol si nécessaire */
+}
+
+
+.main-content {
+  flex-grow: 1;
+  margin-left: var(--sidebar-width);
+  /* Espace pour la sidebar fixe */
+  padding-top: var(--header-height);
+  /* Espace pour le header fixe du contenu */
+  background-color: #22252e;
+  /* Fond légèrement différent pour la zone de contenu */
+  display: flex;
+  flex-direction: column;
+}
+
+.main-header {
+  background-color: var(--dark-bg);
+  color: var(--text-color);
+  padding: 0 30px;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* Pour espacer le titre et le bouton menu mobile */
+  border-bottom: 1px solid var(--border-color);
+  position: fixed;
+  /* Header fixe */
+  top: 0;
+  left: var(--sidebar-width);
+  right: 0;
+  z-index: 999;
+  /* En dessous de la sidebar, au-dessus du contenu principal */
+}
+
+.main-header h1 {
+  margin: 0;
+  font-size: 1.5em;
+  color: var(--text-color);
+  /* Assurer la visibilité du titre */
+}
+
+
+.mobile-menu-toggle {
+  display: none;
+  /* Caché par défaut, visible sur mobile */
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.5em;
+  /* Taille de l'icône hamburger */
+  cursor: pointer;
+  padding: 10px;
+}
+
+.hamburger-icon {
+  /* Style simple pour un hamburger, pourrait être un SVG */
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: var(--text-color);
+  position: relative;
+}
+
+.hamburger-icon::before,
+.hamburger-icon::after {
+  content: '';
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: var(--text-color);
+  position: absolute;
+}
+
+.hamburger-icon::before {
+  top: -8px;
+}
+
+.hamburger-icon::after {
+  bottom: -8px;
+}
+
+
+/* Contenu principal (après le header) */
+.main-content main {
+  padding: 30px;
+  flex-grow: 1;
+}
+
+.page-title-section h2 {
+  font-size: 1.8em;
+  color: var(--text-color);
+  margin-bottom: 20px;
+}
+
+.card {
+  background-color: var(--medium-bg);
+  /* Fond des cartes */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  margin-bottom: 20px;
+}
+
+.filters-section {
+  display: flex;
+  flex-wrap: wrap;
+  /* Pour la responsivité des filtres */
+  gap: 20px;
+  align-items: center;
+  /* Aligner les éléments de filtre verticalement */
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-filter {
+  flex-grow: 1;
+  /* Le champ de recherche prend plus de place */
+  min-width: 250px;
+  /* Empêche qu'il devienne trop petit */
+}
+
+.search-input-container {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  /* Fond blanc pour l'input */
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 0 10px;
+}
+
+.search-input-container .search-icon-prefix {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  filter: grayscale(100%) opacity(0.5);
+  /* Icône de recherche grise */
+}
+
+.filters-section input[type="search"],
+.filters-section select {
+  padding: 10px;
+  border: none;
+  /* Bordure gérée par le conteneur pour la recherche */
+  border-radius: 4px;
+  background-color: transparent;
+  /* Input transparent, conteneur a le fond */
+  color: #333;
+  /* Texte foncé dans les inputs */
+  font-size: 0.9em;
+  height: 40px;
+  /* Hauteur cohérente */
+  box-sizing: border-box;
+}
+
+.filters-section input[type="search"] {
+  flex-grow: 1;
+  outline: none;
+  /* Pas de bordure au focus */
+}
+
+.filters-section select {
+  background-color: #fff;
+  /* Select a besoin de son propre fond blanc */
+  border: 1px solid var(--border-color);
+  /* Et de sa bordure */
+  min-width: 120px;
+  /* Pour 'Mois', 'Année' */
+}
+
+.filters-section .btn-secondary {
+  /* Style pour le bouton "Appliquer" */
+  background-color: var(--light-bg);
+  color: var(--text-color);
+  padding: 10px 20px;
+  /* Ajustement de la taille */
+  height: 40px;
+  box-sizing: border-box;
+}
+
+.filters-section .btn-secondary:hover {
+  background-color: var(--medium-bg);
+}
+
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  /* Grille responsive */
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.stat-card {
+  text-align: left;
+  /* Texte aligné à gauche dans les cartes */
+}
+
+.stat-card .stat-number {
+  font-size: 2em;
+  font-weight: bold;
+  color: var(--text-color);
+
+}
+
+.stat-card .stat-contribution {
+  font-size: 2.4em;
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 5px;
+  margin-top: 10px;
+  /* Espace avant les contributions */
+}
+
+.stat-card .stat-label {
+  font-size: 0.9em;
+  color: var(--text-muted);
+  margin-bottom: 15px;
+}
+
+.stat-card .details-link {
+  display: inline-block;
+  font-size: 0.9em;
+  color: var(--primary-color);
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.stat-card .details-link:hover {
+  text-decoration: underline;
+}
+
+.charts-section .chart-container {
+  position: relative;
+  height: 350px;
+  /* Hauteur pour le graphique */
+  width: 100%;
+}
+
+.main-footer {
+  /* Footer spécifique au contenu principal */
+  text-align: center;
+  padding: 20px 30px;
+  background-color: var(--dark-bg);
+  /* Assorti au header du contenu */
+  color: var(--text-muted);
+  font-size: 0.85em;
+  border-top: 1px solid var(--border-color);
+}
+
+/* Classe utilitaire pour les lecteurs d'écran */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Responsive: Menu mobile */
+@media (max-width: 992px) {
+
+  /* Point de rupture pour la sidebar */
+  .sidebar {
+    transform: translateX(-100%);
+    /* Caché par défaut */
+    /* Pourrait ajouter un box-shadow quand ouvert */
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .main-content {
+    margin-left: 0;
+    /* Prend toute la largeur */
+  }
+
+  .main-header {
+    left: 0;
+    /* Prend toute la largeur */
+  }
+
+  .mobile-menu-toggle {
+    display: block;
+    /* Afficher le bouton hamburger */
+  }
+}
+
+@media (max-width: 768px) {
+  .filters-section {
+    flex-direction: column;
+    /* Empiler les filtres sur petits écrans */
+    align-items: stretch;
+    /* Chaque filtre prend toute la largeur */
+  }
+
+  .filters-section .filter-group,
+  .filters-section .btn-secondary {
+    width: 100%;
+    /* Assurer que les éléments prennent toute la largeur */
+  }
+
+  .filters-section select {
+    width: 100%;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    /* Une carte par ligne */
+  }
+
+  .main-header h1 {
+    font-size: 1.2em;
+  }
+
+  .main-content main {
+    padding: 20px;
+  }
+}
+
+/* css/styles.css */
+
+/* ... (styles précédents) ... */
+
+/* Section titre de page avec bouton */
+.page-title-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.page-title-section h2 {
+  margin-bottom: 0;
+  /* Annule la marge par défaut si elle vient de h2 */
+}
+
+.page-title-section .btn-primary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-icon {
+  /* Icône dans un bouton texte */
+  width: 16px;
+  height: 16px;
+  /* La couleur peut être gérée par filter ou par le SVG lui-même */
+}
+
+
+/* Styles pour les tableaux */
+.table-section {
+  /* La classe .card fournit déjà le fond et le padding */
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  /* Permet le scroll horizontal sur petits écrans */
+  -webkit-overflow-scrolling: touch;
+  /* Défilement plus fluide sur iOS */
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  /* Fusionne les bordures des cellules */
+  margin-bottom: 20px;
+  /* Espace avant la pagination */
+  font-size: 0.9em;
+}
+
+.data-table th,
+.data-table td {
+  padding: 12px 15px;
+  /* Espacement interne des cellules */
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-color);
+}
+
+.data-table th {
+  background-color: var(--light-bg);
+  /* Fond pour les en-têtes de colonnes */
+  color: var(--text-color);
+  font-weight: bold;
+  white-space: nowrap;
+  /* Empêche les titres de passer à la ligne */
+}
+
+.data-table tbody tr:hover {
+  background-color: var(--light-bg);
+  /* Effet de survol sur les lignes */
+}
+
+.data-table tbody tr td {
+  color: var(--text-secondary);
+  /* Texte des cellules un peu plus clair */
+}
+
+.data-table tbody tr td:first-child {
+  color: var(--text-color);
+  /* ID plus visible */
+}
+
+
+.actions-cell {
+  white-space: nowrap;
+  /* Empêche les boutons d'actions de passer à la ligne */
+  text-align: right;
+  /* Aligner les boutons à droite dans la cellule */
+}
+
+.actions-cell .btn-icon {
+  /* Styles pour les boutons d'action icône uniquement */
+  background: none;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  margin-left: 5px;
+  /* Espace entre les boutons d'action */
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.actions-cell .btn-icon img {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  filter: invert(70%) sepia(10%) saturate(200%) hue-rotate(180deg) brightness(100%) contrast(85%);
+  /* Icône grise par défaut */
+}
+
+.actions-cell .btn-icon:hover {
+  opacity: 1;
+}
+
+.actions-cell .btn-icon.btn-view:hover img {
+  filter: invert(60%) sepia(90%) saturate(1500%) hue-rotate(180deg) brightness(90%) contrast(90%);
+}
+
+/* Bleu */
+.actions-cell .btn-icon.btn-edit:hover img {
+  filter: invert(86%) sepia(28%) saturate(1578%) hue-rotate(325deg) brightness(97%) contrast(93%);
+}
+
+/* Jaune/Orange */
+.actions-cell .btn-icon.btn-delete:hover img {
+  filter: invert(30%) sepia(80%) saturate(3000%) hue-rotate(330deg) brightness(90%) contrast(100%);
+}
+
+/* Rouge */
+
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  list-style: none;
+  gap: 5px;
+  /* Espace entre les liens de pagination */
+}
+
+.page-link,
+.page-link-ellipsis {
+  color: var(--primary-color);
+  padding: 8px 12px;
+  text-decoration: none;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  font-size: 0.9em;
+}
+
+.page-link:hover {
+  background-color: var(--primary-color);
+  color: var(--dark-bg);
+  border-color: var(--primary-color);
+}
+
+.page-link.active {
+  background-color: var(--primary-color);
+  color: var(--dark-bg);
+  border-color: var(--primary-color);
+  font-weight: bold;
+}
+
+.page-link.disabled {
+  color: var(--text-muted);
+  pointer-events: none;
+  /* Désactive le clic */
+  border-color: var(--border-color);
+}
+
+.page-link-ellipsis {
+  border: none;
+  padding: 8px 0;
+  /* Ajustement pour l'alignement */
+}
+
+/* Styles pour la Modale */
+.modal {
+  display: none;
+  /* Cachée par défaut, gérée par JS */
+  position: fixed;
+  z-index: 1050;
+  /* Au-dessus de tout, sauf peut-être autres modales */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  /* Scroll si contenu trop long */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Fond semi-transparent */
+  align-items: center;
+  /* Centrage vertical avec flex */
+  justify-content: center;
+  /* Centrage horizontal avec flex */
+}
+
+.modal.open {
+  /* La classe 'open' sera ajoutée par JS pour afficher */
+  display: flex;
+}
+
+.modal-dialog {
+  background-color: var(--medium-bg);
+  margin: auto;
+  /* Pour IE11 et fallback */
+  padding: 0;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  width: 90%;
+  max-width: 600px;
+  /* Largeur max de la modale */
+  position: relative;
+  /* Pour positionner le bouton de fermeture */
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 1.4em;
+  color: var(--text-color);
+}
+
+.btn-close-modal {
+  background: none;
+  border: none;
+  font-size: 1.8em;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0 5px;
+  line-height: 1;
+}
+
+.btn-close-modal:hover {
+  color: var(--text-color);
+}
+
+.modal-body {
+  padding: 20px;
+  overflow-y: auto;
+  /* Scroll pour le corps de la modale si besoin */
+  max-height: 60vh;
+  /* Limite la hauteur du corps */
+}
+
+/* Les .form-group et .form-row de auth-pages peuvent être réutilisés ou adaptés */
+.modal-body .form-group label {
+  color: var(--text-muted);
+}
+
+.modal-body .form-group input,
+.modal-body .form-group select {
+  background-color: #fff;
+  /* Fond blanc pour les champs dans la modale */
+  color: #333;
+  border: 1px solid #666;
+}
+
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 15px 20px;
+  border-top: 1px solid var(--border-color);
+  gap: 10px;
+}
+
+.modal-backdrop {
+  /* Si vous utilisez un backdrop séparé */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+  /* En dessous de la modale */
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* css/styles.css */
+
+/* ... (styles précédents pour page-container, sidebar, main-content, header, tables, pagination, modal etc.) ... */
+
+/* Badges de statut pour les paiements */
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 12px;
+  /* Pilule */
+  font-size: 0.8em;
+  font-weight: bold;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.status-paid {
+  /* Payé */
+  background-color: rgba(76, 175, 80, 0.2);
+  /* Vert clair */
+  color: #4CAF50;
+  /* Vert foncé */
+}
+
+.status-due {
+  /* À payer */
+  background-color: rgba(244, 67, 54, 0.2);
+  /* Rouge clair */
+  color: #F44336;
+  /* Rouge foncé */
+}
+
+.status-pending {
+  /* En attente */
+  background-color: rgba(255, 152, 0, 0.2);
+  /* Orange clair */
+  color: #FF9800;
+  /* Orange foncé */
+}
+
+.status-cancelled {
+  /* Annulé */
+  background-color: rgba(158, 158, 158, 0.2);
+  /* Gris clair */
+  color: #616161;
+  /* Gris foncé */
+}
+
+/* Ajustement des actions pour les paiements si nécessaire */
+.actions-cell .btn-icon.btn-receipt:hover img {
+  filter: invert(60%) sepia(50%) saturate(600%) hue-rotate(150deg) brightness(95%) contrast(90%);
+  /* Une autre couleur, ex: turquoise/bleu clair */
+}
+
+.actions-cell .btn-icon[disabled] img {
+  filter: grayscale(100%) opacity(0.4);
+  /* Icône grisée si désactivée */
+  cursor: not-allowed;
+}
+
+.actions-cell .btn-icon[disabled] {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+
+/* Styles pour la modale de paiement - les champs de formulaire sont déjà stylés */
+#paymentModal .form-group input[name="currency"] {
+  background-color: #e9ecef;
+  /* Fond grisé pour les champs readonly */
+  cursor: not-allowed;
+}
+
+/* css/styles.css */
+/* ... (styles existants) ... */
+
+/* Styles pour les formulaires dédiés (create-payment.html, register-member.html) */
+.form-container.card {
+  /* Appliquer le style de carte existant */
+  max-width: 800px;
+  /* Un peu plus large pour les formulaires complexes */
+  margin: 30px auto;
+  /* Centrer le conteneur de formulaire */
+}
+
+.back-link-form {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9em;
+}
+
+.back-link-form:hover {
+  color: var(--text-color);
+}
+
+.form-title {
+  text-align: center;
+  font-size: 1.8em;
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
+
+.form-subtitle {
+  text-align: center;
+  font-size: 1.1em;
+  color: var(--primary-color);
+  /* Couleur pour le sous-titre comme dans l'OCR */
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.form-container .form-group {
+  margin-bottom: 20px;
+  /* Plus d'espace entre les groupes de champs */
+}
+
+.form-container .form-row {
+  /* Assurer que form-row fonctionne bien ici aussi */
+  display: flex;
+  gap: 20px;
+  margin-bottom: 0;
+  /* La marge est sur .form-group maintenant */
+}
+
+.form-container .form-row .form-group {
+  flex: 1;
+  margin-bottom: 20px;
+  /* Conserver la marge du bas pour les champs */
+}
+
+@media (max-width: 600px) {
+  .form-container .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+.btn-block-form {
+  /* Bouton pleine largeur pour les formulaires dédiés */
+  display: block;
+  width: 100%;
+  padding: 12px;
+  font-size: 1.1em;
+  margin-top: 20px;
+}
+
+/* Styles pour le Wizard (register-member.html) */
+.wizard-container .form-title {
+  /* Titre principal du wizard */
+  margin-bottom: 30px;
+}
+
+.wizard-steps {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.step-indicator {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--light-bg);
+  color: var(--text-muted);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  border: 2px solid var(--light-bg);
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.step-indicator.active {
+  background-color: var(--primary-color);
+  color: var(--dark-bg);
+  border-color: var(--primary-color);
+}
+
+.step-connector {
+  flex-grow: 0.2;
+  /* Ajustez pour la longueur de la ligne */
+  max-width: 100px;
+  height: 2px;
+  background-color: var(--light-bg);
+}
+
+.wizard-steps .step-indicator.completed {
+  /* Si vous voulez marquer les étapes complétées différemment */
+  background-color: var(--medium-bg);
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.wizard-step {
+  display: none;
+  /* Caché par défaut */
+  animation: fadeIn 0.5s;
+  /* Petite animation de fondu */
+}
+
+.wizard-step.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.wizard-step .step-title {
+  /* Titre de chaque étape (INFORMATIONS PERSONELLES, CONTACT, etc.) */
+  font-size: 1.3em;
+  color: var(--primary-color);
+  margin-top: 30px;
+  /* Espace si plusieurs sections dans une étape */
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.wizard-step .step-title:first-of-type {
+  margin-top: 0;
+  /* Pas de marge en haut pour le premier titre de l'étape */
+}
+
+
+.wizard-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border-color);
+}
+
+.wizard-nav .btn {
+  min-width: 120px;
+  /* Largeur minimale pour les boutons de navigation */
+}
+
+.radio-group label,
+.checkbox-group label {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.radio-group label input[type="radio"],
+.radio-group label input[type="checkbox"],
+.checkbox-group label input[type="radio"],
+.checkbox-group label input[type="checkbox"] {
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.radio-group-horizontal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  /* Espace horizontal et vertical entre les options */
+  margin-bottom: 15px;
+}
+
+.radio-group-horizontal label {
+  margin-bottom: 0;
+  /* Annule la marge du bas de .radio-group label */
+  display: flex;
+  /* Pour aligner input et texte */
+  align-items: center;
+}
+
+.inline-label {
+  /* Pour "Montant Libre" et son input */
+  display: inline-flex;
+  /* Utiliser inline-flex pour l'alignement */
+  align-items: center;
+  margin-right: 10px;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+
+.inline-label input[type="radio"] {
+  margin-right: 8px;
+}
+
+/* css/styles.css */
+/* ... (styles existants) ... */
+
+/* Styles spécifiques Espace Membre si nécessaire */
+.member-sidebar .admin-info span {
+  /* Si on veut un style différent pour l'email membre */
+  /* font-weight: normal; */
+}
+
+.member-main-header h1 {
+  /* S'assurer que ESPACE MEMBRE est bien stylé */
+  /* Styles potentiels si différents de "HOME" */
+}
+
+.page-title-section .actions-group {
+  display: flex;
+  gap: 10px;
+}
+
+/* Filtres avec onglets (Mes contributions / Mes dons) */
+.filters-section {
+  /* S'assurer que display:flex est déjà là pour aligner les groupes de filtres */
+  /* gap: 20px; */
+  /* Déjà présent */
+  /* align-items: center; */
+  /* Déjà présent */
+}
+
+.filter-tabs {
+  display: flex;
+  gap: 0;
+  /* Pas d'espace entre les boutons d'onglet */
+  margin-right: 20px;
+  /* Espace entre les onglets et les autres filtres */
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  overflow: hidden;
+  /* Pour arrondir les coins des boutons internes */
+}
+
+.tab-button {
+  background-color: transparent;
+  color: var(--text-muted);
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.2s, color 0.2s;
+  border-right: 1px solid var(--border-color);
+  /* Séparateur entre onglets */
+}
+
+.tab-button:last-child {
+  border-right: none;
+}
+
+.tab-button.active,
+.tab-button:hover {
+  background-color: var(--primary-color);
+  color: var(--dark-bg);
+}
+
+/* Input de date pour filtres */
+.filters-section input[type="month"],
+.filters-section input[type="date"] {
+  /* Style pour input date si pas encore défini */
+  padding: 8px 10px;
+  /* Ajustement du padding pour la hauteur */
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: #fff;
+  color: #333;
+  font-size: 0.9em;
+  height: 40px;
+  /* Cohérence de hauteur avec autres filtres */
+  box-sizing: border-box;
+  min-width: 150px;
+  /* Largeur minimale pour le sélecteur de date/mois */
+}
+
+/* Placeholder text color for date/month inputs */
+.filters-section input[type="month"]::-webkit-calendar-picker-indicator,
+.filters-section input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0.6;
+}
+
+.filters-section input[type="month"]:focus,
+.filters-section input[type="date"]:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(var(--primary-color-rgb), 0.2);
+  /* Utiliser --primary-color-rgb si défini */
+}
+
+/* Si primary-color-rgb n'est pas défini, ajouter dans :root */
+/* :root { */
+/*   --primary-color-rgb: 240, 173, 78;  /* Exemple pour #f0ad4e */
+/* } */
+/* css/styles.css */
+/* ... (styles existants) ... */
+
+.inbox-section {
+  /* La classe .card fournit déjà le fond et le padding */
+}
+
+.message-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.message-item {
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color 0.2s ease;
+}
+
+.message-item:last-child {
+  border-bottom: none;
+}
+
+.message-item:hover {
+  background-color: var(--light-bg);
+  /* Léger fond au survol */
+}
+
+.message-link {
+  display: block;
+  padding: 15px 20px;
+  text-decoration: none;
+  color: var(--text-muted);
+}
+
+.message-item.unread .message-link {
+  /* Styles pour les messages non lus */
+  font-weight: bold;
+  /* Rendre le texte plus gras */
+  /* background-color: rgba(var(--primary-color-rgb), 0.05); /* Léger fond coloré */
+}
+
+.message-item.unread .message-sender,
+.message-item.unread .message-subject {
+  color: var(--text-color);
+  /* Texte plus visible pour expéditeur/sujet non lus */
+}
+
+
+.message-sender {
+  font-size: 1em;
+  font-weight: bold;
+  color: var(--text-color);
+  /* Expéditeur en couleur de texte principale */
+  margin-bottom: 4px;
+}
+
+.message-subject {
+  font-size: 0.95em;
+  color: var(--text-muted);
+  /* Sujet un peu plus discret */
+  margin-bottom: 6px;
+  /* Peut ajouter un text-overflow: ellipsis si trop long */
+}
+
+.message-item.unread .message-subject {
+  color: var(--text-color);
+}
+
+.message-excerpt {
+  font-size: 0.85em;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-bottom: 8px;
+  /* Limiter le nombre de lignes pour l'extrait si nécessaire */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  /* Affiche sur 2 lignes max */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.message-date {
+  font-size: 0.8em;
+  color: var(--text-muted);
+  text-align: right;
+}
+
+/* La pagination .pagination est déjà stylée globalement */
+.inbox-section .pagination {
+  margin-top: 20px;
+  /* Espace au-dessus de la pagination */
+}
+
+/* css/styles.css */
+/* ... (styles existants) ... */
+
+/* S'assurer que le .form-container est bien stylé (déjà fait) */
+/* .form-container.card { ... } */
+
+/* Si on veut styler le placeholder #paymentDetailsSection */
+#paymentDetailsSection {
+  border: 1px dashed var(--border-color);
+  padding: 15px;
+  margin-top: 15px;
+  border-radius: 4px;
+  background-color: rgba(var(--medium-bg-rgb), 0.5);
+  /* Utiliser --medium-bg-rgb si défini */
+  font-style: italic;
+  text-align: center;
+}
+
+/* Si medium-bg-rgb n'est pas défini, ajouter dans :root */
+/* :root { */
+/*   --medium-bg-rgb: 58, 63, 76;  /* Exemple pour #3a3f4c */
+/* } */
+
+/* css/styles.css */
+
+
+
+/* Application générale des variables */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* Police plus moderne */
+  margin: 0;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  transition: background-color 0.2s, color 0.2s;
+  /* Transition plus rapide */
+  font-size: 15px;
+  /* Base de police légèrement plus petite, style Orbix */
+  line-height: 1.6;
+}
+
+/* --- Styles pour les pages d'authentification (login, signup) --- */
+.auth-container {
+  background-color: var(--bg-primary);
+  /* Utiliser le fond primaire, la carte sera --bg-secondary ou --bg-tertiary */
+  flex-grow: 1;
+  /* S'assurer qu'il prend la hauteur */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-main {
+  background-color: var(--bg-secondary);
+  /* Carte sur fond primaire */
+  box-shadow: 0 6px 18px var(--shadow-color);
+  /* Ombre plus douce style Orbix */
+  border-radius: 12px;
+  /* Coins plus arrondis */
+  padding: 40px;
+  /* Plus de padding interne */
+  width: 100%;
+  max-width: 450px;
+  /* Un peu plus petit pour le focus */
+}
+
+.auth-main h1 {
+  color: var(--text-primary);
+  text-align: center;
+  /* Centré comme Orbix */
+  font-size: 1.8em;
+  /* Plus petit */
+  margin-bottom: 8px;
+}
+
+.auth-main .form-instruction {
+  color: var(--text-secondary);
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 0.95em;
+}
+
+.back-link {
+  /* Moins proéminent ou intégré différemment */
+  color: var(--text-muted);
+  font-size: 0.9em;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.back-link:hover {
+  color: var(--africavenir-yellow);
+}
+
+.form-group label {
+  display: block;
+  color: var(--text-pramary);
+  font-size: 0.9em;
+  /* Labels plus petits */
+  margin-bottom: 6px;
+  font-weight: 500;
+  /* Un peu moins gras */
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group input[type="email"],
+.form-group input[type="number"],
+.form-group input[type="tel"],
+.form-group input[type="date"],
+.form-group select {
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  /* Coins arrondis pour inputs */
+  padding: 12px 15px;
+  /* Padding un peu plus grand */
+  font-size: 0.95em;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--input-focus-border);
+  box-shadow: 0 0 0 0.2rem var(--input-focus-shadow);
+  outline: none;
+}
+
+/* Inputs dans les filtres */
+.filters-section .search-input-container,
+.filters-section select,
+.filters-section input[type="month"],
+.filters-section input[type="date"] {
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  height: 42px;
+  /* Hauteur cohérente */
+}
+
+.filters-section .search-input-container input[type="search"] {
+  border: none;
+  background-color: transparent;
+  color: var(--input-text);
+  /* Assurer la couleur du texte */
+}
+
+.filters-section .search-input-container:focus-within,
+.filters-section select:focus,
+.filters-section input[type="month"]:focus,
+.filters-section input[type="date"]:focus {
+  border-color: var(--input-focus-border);
+  box-shadow: 0 0 0 0.2rem var(--input-focus-shadow);
+}
+
+.search-input-container .search-icon-prefix {
+  opacity: 0.6;
+}
+
+body[data-theme="dark"] .search-input-container .search-icon-prefix {
+  filter: invert(80%) brightness(1.2);
+  /* Ajuster pour thème sombre */
+}
+
+body[data-theme="light"] .search-input-container .search-icon-prefix {
+  filter: none;
+  /* Pas de filtre si l'icône est déjà de la bonne couleur */
+}
+
+
+.btn-primary {
+  /* Bouton AfricAvenir (jaune) */
+  background-color: var(--africavenir-yellow);
+  color: var(--africavenir-yellow-text);
+  /* Texte blanc pour contraste */
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(var(--africavenir-yellow-rgb), 0.2);
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: var(--africavenir-yellow-darker);
+  box-shadow: 0 4px 8px rgba(var(--africavenir-yellow-rgb), 0.3);
+}
+
+.btn-secondary {
+  /* Bouton secondaire (style Orbix: fond clair, texte foncé, bordure) */
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-primary);
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 0.95em;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: var(--bg-hover-neutral);
+  border-color: var(--border-secondary);
+}
+
+.btn-danger {
+  /* Bouton de danger pour suppression */
+  background-color: var(--color-danger);
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 0.95em;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+  transform: translateY(-1px);
+}
+
+
+.site-footer {
+  background-color: var(--bg-primary);
+  /* Même fond que le body */
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-primary);
+  padding: 20px;
+  font-size: 0.85em;
+}
+
+.auth-footer {
+  background-color: transparent;
+  border-top: none;
+  color: var(--text-muted);
+  /* Assurer la couleur */
+  padding-top: 20px;
+  /* Espace au-dessus */
+}
+
+/* Layout principal de l'application (Dashboard, etc.) */
+.sidebar {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  /* Utiliser text-primary pour une meilleure lisibilité */
+  border-right: 1px solid var(--border-primary);
+}
+
+.sidebar-header {
+  border-bottom: 1px solid var(--border-primary);
+  padding-bottom: 15px;
+  /* Ajustement */
+}
+
+.admin-info span {
+  font-size: 0.85em;
+  color: var(--text-secondary);
+}
+
+.main-nav li a {
+  color: var(--text-secondary);
+  /* Liens de nav en gris moyen */
+  border-left: 3px solid transparent;
+  /* Garder la bordure invisible par défaut */
+  padding: 14px 20px;
+  /* Padding ajusté */
+  font-weight: 500;
+}
+
+.main-nav li a:hover {
+  background-color: var(--bg-hover-neutral);
+  color: var(--text-primary);
+  border-left-color: var(--border-secondary);
+  /* Bordure discrète au survol */
+}
+
+.main-nav li.active a {
+  background-color: var(--bg-active-nav-item);
+  color: var(--text-on-active-nav-item);
+  border-left-color: var(--border-active-nav-item);
+  font-weight: 600;
+  /* Plus gras pour l'actif */
+}
+
+/* Icônes de navigation */
+.nav-icon {
+  /* SVG icons should ideally use fill="currentColor" */
+  opacity: 0.7;
+  /* Rendre les icônes un peu discrètes */
+}
+
+.main-nav li a:hover .nav-icon,
+.main-nav li.active a .nav-icon {
+  opacity: 1;
+  /* Pleine opacité pour hover/active */
+}
+
+/* Si vous devez utiliser filter pour les SVG non currentColor */
+body[data-theme="light"] .nav-icon {
+  filter: grayscale(30%) opacity(0.7);
+}
+
+body[data-theme="light"] .main-nav li.active a .nav-icon {
+  filter: brightness(0) saturate(100%) invert(65%) sepia(53%) saturate(1034%) hue-rotate(359deg) brightness(97%) contrast(91%);
+  /* Teinte jaune */
+}
+
+body[data-theme="dark"] .nav-icon {
+  filter: invert(90%) sepia(5%) saturate(100%) hue-rotate(180deg) brightness(100%) contrast(85%) opacity(0.7);
+}
+
+body[data-theme="dark"] .main-nav li.active a .nav-icon {
+  filter: invert(75%) sepia(60%) saturate(1200%) hue-rotate(350deg) brightness(100%) contrast(95%) opacity(1);
+}
+
+
+.main-content {
+  background-color: var(--bg-primary);
+}
+
+.main-header {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-primary);
+  box-shadow: 0 2px 4px var(--shadow-color);
+  /* Légère ombre sous le header */
+}
+
+.main-header h1 {
+  color: var(--text-primary);
+  font-size: 1.4em;
+}
+
+/* Titre "HOME" / "ESPACE MEMBRE" */
+
+.mobile-menu-toggle .hamburger-icon,
+.mobile-menu-toggle .hamburger-icon::before,
+.mobile-menu-toggle .hamburger-icon::after {
+  background-color: var(--text-primary);
+}
+
+
+.card {
+  /* Style de base pour toutes les cartes */
+  background-color: var(--bg-tertiary);
+  box-shadow: 0 4px 12px var(--shadow-color);
+  /* Ombre douce style Orbix */
+  border-radius: 10px;
+  /* Coins arrondis */
+  border: 1px solid var(--border-primary);
+  /* Bordure très légère */
+}
+
+.page-title-section h2 {
+  color: var(--text-primary);
+  font-size: 1.7em;
+}
+
+/* Stat cards (dashboard) */
+.stat-card {
+  padding: 25px;
+}
+
+/* Plus de padding interne */
+.stat-card h3 {
+  color: var(--africavenir-yellow);
+  font-size: 2.1em;
+  margin-bottom: 8px;
+}
+
+.stat-card .stat-number,
+.stat-card .stat-contribution {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 2em;
+  margin: 0;
+}
+
+.stat-card .stat-label {
+  color: var(--text-muted);
+  font-size: 0.85em;
+  margin-bottom: 10px;
+}
+
+.stat-card .details-link {
+  color: var(--africavenir-yellow);
+  font-size: 0.85em;
+  font-weight: 500;
+}
+
+/* Tableaux */
+.data-table th,
+.data-table td {
+  border-bottom: 1px solid var(--border-primary);
+  color: var(--text-secondary);
+  padding: 14px 16px;
+  /* Padding ajusté */
+  font-size: 0.9em;
+}
+
+.data-table th {
+  background-color: var(--bg-hover-neutral);
+  /* Fond très clair pour les en-têtes */
+  color: var(--text-primary);
+  font-weight: 600;
+  /* Texte d'en-tête plus gras */
+  text-transform: uppercase;
+  /* Style Orbix */
+  font-size: 0.8em;
+  /* Plus petit pour les en-têtes */
+  letter-spacing: 0.5px;
+}
+
+.data-table tbody tr:hover {
+  background-color: var(--bg-hover-neutral);
+}
+
+.data-table tbody tr td:first-child {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* Icônes d'action dans les tableaux */
+.actions-cell .btn-icon img {
+  /* Utiliser fill="currentColor" sur les SVG serait mieux */
+  opacity: 0.6;
+}
+
+.actions-cell .btn-icon:hover img {
+  opacity: 1;
+}
+
+/* Adapter les filtres spécifiques pour hover si besoin */
+body[data-theme="light"] .actions-cell .btn-icon.btn-edit:hover img {
+  filter: brightness(0) saturate(100%) invert(65%) sepia(53%) saturate(1034%) hue-rotate(359deg) brightness(97%) contrast(91%);
+}
+
+/* Jaune */
+body[data-theme="light"] .actions-cell .btn-icon.btn-delete:hover img {
+  filter: brightness(0) saturate(100%) invert(26%) sepia(87%) saturate(2093%) hue-rotate(334deg) brightness(90%) contrast(94%);
+}
+
+/* Rouge */
+
+
+/* Pagination */
+.pagination .page-link,
+.pagination .page-link-ellipsis {
+  color: var(--text-secondary);
+  /* Texte gris pour les liens */
+  border: 1px solid var(--border-secondary);
+  border-radius: 6px;
+  padding: 7px 12px;
+  font-size: 0.85em;
+}
+
+.pagination .page-link:hover {
+  background-color: var(--bg-hover-neutral);
+  color: var(--text-primary);
+  border-color: var(--border-secondary);
+}
+
+.pagination .page-link.active {
+  /* AfricAvenir accent pour l'actif */
+  background-color: var(--africavenir-yellow);
+  color: var(--africavenir-yellow-text);
+  border-color: var(--africavenir-yellow);
+  font-weight: 600;
+}
+
+.pagination .page-link.disabled {
+  color: var(--text-muted);
+  border-color: var(--border-primary);
+  /* Bordure plus claire pour désactivé */
+  background-color: transparent;
+}
+
+/* Modales */
+.modal {
+  background-color: rgba(var(--text-primary-rgb, 42, 49, 57), 0.6);
+  /* Fond semi-transparent plus foncé/clair */
+}
+
+.modal-dialog {
+  background-color: var(--bg-secondary);
+  /* Fond de la modale */
+  box-shadow: 0 8px 24px var(--shadow-color);
+  border-radius: 10px;
+  border: 1px solid var(--border-primary);
+}
+
+/* ... (reste des styles de modale à adapter comme .card) */
+
+/* Wizard (register-member.html) */
+.wizard-steps .step-indicator {
+  /* Style Orbix (cercles simples) */
+  width: 36px;
+  height: 36px;
+  font-size: 0.9em;
+  background-color: var(--input-bg);
+  color: var(--text-muted);
+  border: 2px solid var(--border-secondary);
+}
+
+.wizard-steps .step-indicator.active,
+.wizard-steps .step-indicator.completed {
+  /* AfricAvenir accent pour actif/complété */
+  background-color: var(--africavenir-yellow);
+  color: var(--africavenir-yellow-text);
+  border-color: var(--africavenir-yellow);
+}
+
+.wizard-steps .step-connector {
+  background-color: var(--border-secondary);
+}
+
+.wizard-step .step-title {
+  /* Titres dans les étapes du wizard */
+  color: var(--text-primary);
+  /* Plus neutre */
+  font-size: 1.1em;
+  border-bottom: 1px solid var(--border-primary);
+}
+
+/* Bouton de changement de thème */
+.theme-toggle-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+body[data-theme="light"] .theme-toggle-btn img {
+  /* Lune */
+  filter: invert(30%) sepia(10%) saturate(500%) hue-rotate(180deg) brightness(85%) contrast(90%);
+  /* Icone sombre */
+}
+
+body[data-theme="dark"] .theme-toggle-btn img {
+  /* Soleil */
+  filter: invert(85%) sepia(50%) saturate(700%) hue-rotate(350deg) brightness(105%) contrast(105%);
+  /* Icone jaune/claire */
+}
+
+/* Espace Membre - onglets de filtre */
+.filter-tabs {
+  border: 1px solid var(--border-secondary);
+  border-radius: 8px;
+}
+
+.tab-button {
+  color: var(--text-secondary);
+  border-right: 1px solid var(--border-secondary);
+  padding: 9px 15px;
+}
+
+.tab-button.active,
+.tab-button:hover {
+  background-color: var(--africavenir-yellow);
+  color: var(--africavenir-yellow-text);
+  font-weight: 500;
+}
+
+/* Badges de statut pour paiements */
+.status-paid {
+  background-color: var(--bg-success-light);
+  color: var(--color-success);
+}
+
+.status-due {
+  background-color: var(--bg-danger-light);
+  color: var(--color-danger);
+}
+
+.status-pending {
+  background-color: var(--bg-warning-light);
+  color: var(--color-warning);
+}
+
+.status-cancelled {
+  background-color: var(--bg-info-light);
+  color: var(--color-info);
+}
+
+/* Placeholder #paymentDetailsSection */
+#paymentDetailsSection {
+  border: 1px dashed var(--border-secondary);
+  background-color: var(--bg-hover-neutral);
+  /* Fond très clair */
+  padding: 20px;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+/* ... (styles pour btn, btn-primary, btn-block, auth-links, site-footer, auth-footer, media queries restent inchangés) ... */
+
+/* ===================================
+   MEMBERSHIP PAGE STYLES
+   Page: devenir-membre.php
+   =================================== */
+
+/* Import de la police Inter pour un rendu moderne */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Container principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ===================================
+   HERO SECTION
+   =================================== */
+.membership-hero {
+    background: linear-gradient(135deg, #2563EB 0%, #7C3AED 50%, #E11D48 100%);
+    padding: 120px 20px 80px;
+    text-align: center;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+.membership-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="white" opacity="0.1"/></svg>');
+    background-size: 50px 50px;
+    animation: float 20s linear infinite;
+}
+
+@keyframes float {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-100px);
+    }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: -0.02em;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    font-weight: 400;
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0.95;
+    line-height: 1.6;
+}
+
+/* ===================================
+   INTRODUCTION SECTION
+   =================================== */
+.membership-intro {
+    background-color: var(--bg-secondary);
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.membership-intro h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 30px;
+}
+
+.intro-text {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ===================================
+   MEMBERSHIP TYPES SECTION
+   =================================== */
+.membership-types {
+    background-color: var(--bg-primary);
+    padding: 80px 20px 100px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+/* Liste verticale des memberships */
+.membership-list {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+/* Item de membership */
+.membership-item {
+    background-color: var(--bg-secondary);
+    border-radius: 16px;
+    padding: 50px 40px;
+    box-shadow: 0 4px 20px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    border: 2px solid transparent;
+}
+
+.membership-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(37, 99, 235, 0.15);
+    border-color: var(--brand-primary);
+}
+
+/* Item mis en avant (Membre d'honneur) */
+.membership-item.featured {
+    background: linear-gradient(135deg, rgba(225, 29, 72, 0.05) 0%, rgba(124, 58, 237, 0.05) 100%);
+    border: 2px solid var(--brand-accent);
+}
+
+.featured-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--brand-accent), #7C3AED);
+    color: white;
+    padding: 8px 24px;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(225, 29, 72, 0.3);
+}
+
+/* Icône */
+.membership-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--brand-primary), #7C3AED);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    color: white;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+}
+
+.membership-item.featured .membership-icon {
+    background: linear-gradient(135deg, var(--brand-accent), #7C3AED);
+}
+
+/* Contenu */
+.membership-content {
+    text-align: left;
+}
+
+.membership-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    letter-spacing: -0.01em;
+}
+
+.membership-description {
+    margin-bottom: 30px;
+}
+
+.membership-description p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+/* Détails (Conditions et Avantages) */
+.membership-details {
+    margin-bottom: 25px;
+    padding: 25px;
+    background-color: var(--bg-primary);
+    border-radius: 12px;
+    border-left: 4px solid var(--brand-primary);
+}
+
+.membership-item.featured .membership-details {
+    border-left-color: var(--brand-accent);
+}
+
+.membership-details h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.875rem;
+}
+
+.membership-details p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* Prix */
+.membership-pricing {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin: 30px 0;
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(124, 58, 237, 0.05));
+    border-radius: 12px;
+}
+
+.price-label {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.price-amount {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--brand-primary);
+}
+
+.membership-item.featured .price-amount {
+    color: var(--brand-accent);
+}
+
+/* Bouton CTA */
+.btn-membership {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--brand-primary), #7C3AED);
+    color: white;
+    padding: 16px 40px;
+    border-radius: 10px;
+    font-size: 1.125rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+    text-align: center;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-membership:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(37, 99, 235, 0.4);
+}
+
+.btn-featured {
+    background: linear-gradient(135deg, var(--brand-accent), #7C3AED);
+    box-shadow: 0 4px 15px rgba(225, 29, 72, 0.3);
+}
+
+.btn-featured:hover {
+    box-shadow: 0 6px 25px rgba(225, 29, 72, 0.4);
+}
+
+/* ===================================
+   CALL TO ACTION SECTION
+   =================================== */
+.membership-cta {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    padding: 80px 20px;
+    text-align: center;
+    color: white;
+}
+
+.membership-cta h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.membership-cta p {
+    font-size: 1.25rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+.btn-cta-large {
+    display: inline-block;
+    background: linear-gradient(135deg, #f0ad4e, #ec971f);
+    color: #1e293b;
+    padding: 20px 50px;
+    border-radius: 12px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(240, 173, 78, 0.4);
+}
+
+.btn-cta-large:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(240, 173, 78, 0.5);
+}
+
+/* ===================================
+   FOOTER
+   =================================== */
+.site-footer {
+    background-color: var(--bg-secondary);
+    padding: 40px 20px;
+    text-align: center;
+    border-top: 1px solid var(--border-primary);
+}
+
+.site-footer p {
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.125rem;
+    }
+
+    .membership-intro h2,
+    .section-title {
+        font-size: 1.875rem;
+    }
+
+    .intro-text {
+        font-size: 1rem;
+    }
+
+    .membership-item {
+        padding: 35px 25px;
+    }
+
+    .membership-title {
+        font-size: 1.5rem;
+    }
+
+    .membership-description p {
+        font-size: 1rem;
+    }
+
+    .membership-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .membership-icon svg {
+        width: 36px;
+        height: 36px;
+    }
+
+    .btn-membership {
+        width: 100%;
+        padding: 14px 30px;
+    }
+
+    .membership-pricing {
+        flex-direction: column;
+        gap: 5px;
+        text-align: center;
+    }
+
+    .price-amount {
+        font-size: 1.5rem;
+    }
+
+    .membership-cta h2 {
+        font-size: 1.875rem;
+    }
+
+    .membership-cta p {
+        font-size: 1.125rem;
+    }
+
+    .btn-cta-large {
+        padding: 16px 35px;
+        font-size: 1.125rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .membership-hero {
+        padding: 80px 20px 60px;
+    }
+
+    .hero-title {
+        font-size: 1.75rem;
+    }
+
+    .membership-intro,
+    .membership-types {
+        padding: 50px 20px;
+    }
+
+    .membership-list {
+        gap: 35px;
+    }
+
+    .membership-details {
+        padding: 20px;
+    }
+}
+
+/* ===================================
+   ANIMATIONS
+   =================================== */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.membership-item {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.membership-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.membership-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.membership-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.membership-item:nth-child(4) {
+    animation-delay: 0.4s;
+}

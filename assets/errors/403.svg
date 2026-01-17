@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" fill="none">
+  <g opacity="0.9">
+    <!-- Ombre -->
+    <ellipse cx="250" cy="450" rx="120" ry="20" fill="#000" opacity="0.1"/>
+    
+    <!-- Grand bouclier avec cadenas -->
+    <g transform="translate(250, 250)">
+      <!-- Bouclier -->
+      <path d="M 0,-120 L 80,-80 L 80,60 Q 80,100 0,140 Q -80,100 -80,60 L -80,-80 Z" 
+            fill="#dc3545" opacity="0.9"/>
+      <path d="M 0,-120 L 80,-80 L 80,60 Q 80,100 0,140 Q -80,100 -80,60 L -80,-80 Z" 
+            fill="none" stroke="#b71c1c" stroke-width="4"/>
+      
+      <!-- Reflet sur le bouclier -->
+      <path d="M -40,-100 Q -30,-80 -40,0 L -50,0 Q -45,-80 -50,-100 Z" 
+            fill="#fff" opacity="0.2"/>
+      
+      <!-- Cadenas -->
+      <g transform="translate(0, 20)">
+        <!-- Corps du cadenas -->
+        <rect x="-35" y="0" width="70" height="60" rx="8" fill="#333"/>
+        <rect x="-35" y="0" width="70" height="60" rx="8" fill="none" stroke="#1a1a1a" stroke-width="3"/>
+        
+        <!-- Anse du cadenas -->
+        <path d="M -25,-40 Q -25,-60 0,-60 Q 25,-60 25,-40 L 25,0" 
+              fill="none" stroke="#333" stroke-width="12" stroke-linecap="round"/>
+        <path d="M -25,-40 Q -25,-60 0,-60 Q 25,-60 25,-40 L 25,0" 
+              fill="none" stroke="#555" stroke-width="8" stroke-linecap="round"/>
+        
+        <!-- Trou de serrure -->
+        <circle cx="0" cy="25" r="8" fill="#1a1a1a"/>
+        <rect x="-3" y="25" width="6" height="20" rx="2" fill="#1a1a1a"/>
+      </g>
+    </g>
+    
+    <!-- Symbole d'interdiction (cercle barré) -->
+    <g transform="translate(380, 120)">
+      <circle cx="0" cy="0" r="40" fill="none" stroke="#dc3545" stroke-width="8"/>
+      <line x1="-28" y1="-28" x2="28" y2="28" stroke="#dc3545" stroke-width="8" stroke-linecap="round"/>
+    </g>
+    
+    <!-- Main "Stop" -->
+    <g transform="translate(100, 380)">
+      <ellipse cx="0" cy="40" rx="30" ry="10" fill="#000" opacity="0.1"/>
+      <!-- Paume -->
+      <rect x="-25" y="0" width="50" height="60" rx="8" fill="#dc3545"/>
+      <!-- Doigts -->
+      <rect x="-28" y="-30" width="12" height="35" rx="6" fill="#dc3545"/>
+      <rect x="-12" y="-35" width="12" height="40" rx="6" fill="#dc3545"/>
+      <rect x="4" y="-33" width="12" height="38" rx="6" fill="#dc3545"/>
+      <rect x="20" y="-28" width="12" height="33" rx="6" fill="#dc3545"/>
+      <!-- Poignet -->
+      <rect x="-20" y="55" width="40" height="15" rx="4" fill="#b71c1c"/>
+    </g>
+    
+    <!-- Particules d'alerte -->
+    <polygon points="420,350 425,365 430,350" fill="#dc3545"/>
+    <polygon points="70,180 75,195 80,180" fill="#dc3545"/>
+    <circle cx="400" cy="400" r="4" fill="#dc3545"/>
+    <circle cx="90" cy="250" r="3" fill="#dc3545"/>
+  </g>
+</svg>

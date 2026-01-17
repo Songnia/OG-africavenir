@@ -1,0 +1,20 @@
+# AfricAvenir - Configuration Apache
+
+# Pages d'erreur personnalisées
+ErrorDocument 404 /OG-afrcavenir/errors/404.php
+ErrorDocument 403 /OG-afrcavenir/errors/403.php
+ErrorDocument 500 /OG-afrcavenir/errors/500.php
+ErrorDocument 503 /OG-afrcavenir/errors/503.php
+
+# Sécurité - Empêcher l'accès aux fichiers sensibles
+<FilesMatch "\.(env|log|sql|md)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Empêcher l'affichage des répertoires
+Options -Indexes
+
+# Activer la réécriture d'URL (si nécessaire pour le futur)
+# RewriteEngine On
+# RewriteBase /OG-afrcavenir/

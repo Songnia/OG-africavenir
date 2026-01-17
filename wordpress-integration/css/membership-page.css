@@ -1,0 +1,375 @@
+:root {
+  /* Couleurs spécifiques AfricAvenir */
+  --africavenir-yellow: #f0ad4e;
+  --africavenir-yellow-rgb: 240, 173, 78;
+  --africavenir-yellow-darker: #d99236;
+  --africavenir-yellow-text: #FFFFFF;
+
+  --text-primary: #582900;
+  --text-secondary: #667085;
+  --text-muted: #98A2B3;
+
+  --bg-primary: #f4f4f4;
+  --bg-secondary: #FFFFFF;
+}
+
+/* Membership Page Redesign */
+.membership-hero {
+  background: url('https://africavenir-international.org/wp-content/uploads/2025/08/IMG-20250731-WA0087.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 120px 20px;
+  text-align: center;
+  border-radius: 0 0 50px 50px;
+  margin-bottom: 60px;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: 3.5em;
+  margin-bottom: 20px;
+  color: #ffffff !important;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.3em;
+  margin-bottom: 30px;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.membership-intro {
+  padding: 60px 20px;
+  background-color: #fff;
+  margin-bottom: 60px;
+}
+
+.intro-container {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.intro-content {
+  flex: 1;
+}
+
+.intro-content h2 {
+  font-size: 2.5em;
+  color: #582900;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.intro-content h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: var(--africavenir-yellow);
+  margin-top: 10px;
+}
+
+.intro-text {
+  font-size: 1.1em;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.intro-image {
+  flex: 1;
+}
+
+.intro-image img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.membership-types {
+  padding: 60px 20px;
+  background-color: #f9fafb;
+}
+
+.membership-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.membership-item {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+}
+
+.membership-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.membership-item.featured {
+  border: 2px solid var(--africavenir-yellow);
+  position: relative;
+  transform: scale(1.02);
+}
+
+.membership-item.featured:hover {
+  transform: scale(1.02) translateY(-10px);
+}
+
+.featured-badge {
+  background-color: var(--africavenir-yellow);
+  color: white;
+  padding: 8px 20px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border-radius: 30px;
+  font-size: 0.8em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.membership-icon {
+  background-color: rgba(240, 173, 78, 0.1);
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--africavenir-yellow);
+  transition: background-color 0.3s;
+}
+
+.membership-item:hover .membership-icon {
+  background-color: rgba(240, 173, 78, 0.2);
+}
+
+.membership-content {
+  padding: 30px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.membership-title {
+  color: #1e2128;
+  font-size: 1.6em;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.membership-subtitle {
+  text-align: center;
+  color: var(--text-muted);
+  margin-top: -10px;
+  margin-bottom: 15px;
+}
+
+.membership-description {
+  margin-bottom: 20px;
+  color: var(--text-secondary);
+  font-size: 0.95em;
+  line-height: 1.6;
+}
+
+.membership-details h4 {
+  color: #1e2128;
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  border-left: 3px solid var(--africavenir-yellow);
+  padding-left: 10px;
+}
+
+.membership-details p {
+  font-size: 0.9em;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+.membership-pricing {
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #f9fafb;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px dashed #ddd;
+}
+
+.price-label {
+  display: block;
+  font-size: 0.9em;
+  color: var(--text-muted);
+  margin-bottom: 5px;
+}
+
+.price-amount {
+  display: block;
+  font-size: 2em;
+  font-weight: 800;
+  color: var(--africavenir-yellow);
+}
+
+.btn-membership {
+  display: block;
+  width: 100%;
+  padding: 18px;
+  background-color: #f0ad4e;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: bold;
+  margin-top: auto;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9em;
+}
+
+.btn-membership:hover {
+  background-color: var(--africavenir-yellow);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.btn-featured {
+  background-color: #582900;
+}
+
+.btn-featured:hover {
+  background-color: #d99236;
+}
+
+/* Privileges Section */
+.membership-privileges {
+  padding: 60px 20px;
+  background-color: #fff;
+}
+
+.privileges-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.privileges-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.privileges-list li {
+  margin-bottom: 15px;
+  padding-left: 30px;
+  position: relative;
+  font-size: 1.1em;
+  color: var(--text-secondary);
+}
+
+.privileges-list li span {
+  position: absolute;
+  left: 0;
+  color: var(--africavenir-yellow);
+  font-weight: bold;
+}
+
+/* Payment Methods Section */
+.membership-payment {
+  padding: 60px 20px;
+  background-color: #f9fafb;
+}
+
+.payment-methods-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.payment-method-card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.payment-method-card h3 {
+  color: var(--africavenir-yellow);
+  margin-bottom: 20px;
+  font-size: 1.3em;
+}
+
+.payment-method-card p,
+.payment-method-card div {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.payment-note {
+  text-align: center;
+  margin-top: 40px;
+  font-style: italic;
+  color: #666;
+  font-size: 0.9em;
+}
+
+.membership-cta {
+  padding: 100px 20px;
+  text-align: center;
+  background-color: #fff;
+}
+
+.membership-cta h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #1e2128;
+}
+
+.btn-cta-large {
+  display: inline-block;
+  padding: 20px 50px;
+  background-color: var(--africavenir-yellow);
+  color: white;
+  font-size: 1.2em;
+  font-weight: bold;
+  border-radius: 50px;
+  text-decoration: none;
+  margin-top: 30px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 10px 20px rgba(240, 173, 78, 0.3);
+}
+
+.btn-cta-large:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(240, 173, 78, 0.4);
+}
+
+@media (max-width: 992px) {
+  .intro-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .intro-content h2::after {
+    margin: 10px auto 0;
+  }
+
+  .hero-title {
+    font-size: 2.5em;
+  }
+}

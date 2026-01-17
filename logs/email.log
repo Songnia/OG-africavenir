@@ -1,0 +1,8 @@
+[2025-11-27 11:03:20] FAILED - To: test@example.com, Subject: Vos identifiants de connexion - AfricAvenir
+[2025-11-27 12:32:30] FAILED - To: testuser1764246745@example.com, Subject: Vos identifiants de connexion - AfricAvenir
+[2025-12-03 20:44:14] FAILED - To: test_admin_1764794647@example.com, Subject: Vos identifiants de connexion - AfricAvenir
+[2025-12-03 20:45:42] FAILED - To: test_admin_1764794737@example.com, Subject: Vos identifiants de connexion - AfricAvenir
+[2025-12-11 15:19:34] FAILED - To: test@example.com, Subject: Bienvenue à AfricAvenir! - Error: SMTP Error: Could not authenticate.
+[2025-12-11 15:23:56] FAILED - To: test@example.com, Subject: Bienvenue à AfricAvenir! - Error: SMTP Error: Could not authenticate.
+[2025-12-11 15:27:31] FAILED - To: sogniaw@gmail.com, Subject: Bienvenue à AfricAvenir! - Error: SMTP Error: Could not authenticate.
+[2025-12-11 16:00:29] FAILED - To: africavenir.foundation@gmail.com, Subject: Bienvenue à AfricAvenir! - Error: SMTP Error: Could not authenticate.
